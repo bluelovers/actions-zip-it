@@ -85,7 +85,9 @@ export async function run(): Promise<void> {
         setOutput('hash', result)
 
         return writeFile(outputFile, buf)
-      })
+      });
+
+      notice(`outputFile: ${outputFile}`);
     }
     else
     {

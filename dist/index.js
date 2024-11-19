@@ -48271,6 +48271,7 @@ async function run() {
                 (0, core_1.setOutput)('hash', result);
                 return (0, promises_1.writeFile)(outputFile, buf);
             });
+            (0, core_1.notice)(`outputFile: ${outputFile}`);
         }
         else {
             throw new RangeError(`Can't found list of files`);
