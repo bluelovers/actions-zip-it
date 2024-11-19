@@ -49,6 +49,7 @@ export async function run(): Promise<void> {
       onlyFiles: true,
       throwErrorOnBrokenSymbolicLink: true,
       unique: true,
+      concurrency: 1,
     }) as any as string[])
     {
       notice(`processing [${(list.length + 1).toString().padStart(3, '0')}] ${file}`);

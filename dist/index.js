@@ -48245,6 +48245,7 @@ async function run() {
             onlyFiles: true,
             throwErrorOnBrokenSymbolicLink: true,
             unique: true,
+            concurrency: 1,
         })) {
             (0, core_1.notice)(`processing [${(list.length + 1).toString().padStart(3, '0')}] ${file}`);
             list.push(file);
