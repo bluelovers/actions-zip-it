@@ -1,5 +1,5 @@
 name: 'actions-zip-it'
-description: 'A GitHub Action to create Git-friendly compressed archives, ensuring the hash remains consistent as long as the file content is identical.'
+description: 'Git-friendly archives with content-based hashing'
 author: 'bluelovers'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
