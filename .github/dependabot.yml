@@ -9,6 +9,8 @@ updates:
         update-types:
           - minor
           - patch
+      # Disable all pull requests for Docker dependencies
+    open-pull-requests-limit: 0
 
   - package-ecosystem: npm
     directory: /
@@ -24,3 +26,5 @@ updates:
         dependency-type: production
         update-types:
           - patch
+    # Disable all pull requests for Docker dependencies
+    open-pull-requests-limit: 0

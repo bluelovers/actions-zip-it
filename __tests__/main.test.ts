@@ -36,9 +36,12 @@ describe('action', () => {
   it('sets the time output', async () => {
     // Set the action's inputs as return values from core.getInput()
     getInputMock.mockImplementation(name => {
-      switch (name) {
-        case 'milliseconds':
-          return '500'
+      switch (name)
+      {
+        case 'paths':
+          return '*.yaml'
+        case 'outputFile':
+          return 'bundle.yaml'
         default:
           return ''
       }
@@ -47,30 +50,18 @@ describe('action', () => {
     await main.run()
     expect(runMock).toHaveReturned()
 
-    // Verify that all of the core library functions were called correctly
-    expect(debugMock).toHaveBeenNthCalledWith(1, 'Waiting 500 milliseconds ...')
-    expect(debugMock).toHaveBeenNthCalledWith(
-      2,
-      expect.stringMatching(timeRegex)
-    )
-    expect(debugMock).toHaveBeenNthCalledWith(
-      3,
-      expect.stringMatching(timeRegex)
-    )
-    expect(setOutputMock).toHaveBeenNthCalledWith(
-      1,
-      'time',
-      expect.stringMatching(timeRegex)
-    )
     expect(errorMock).not.toHaveBeenCalled()
   })
 
   it('sets a failed status', async () => {
     // Set the action's inputs as return values from core.getInput()
     getInputMock.mockImplementation(name => {
-      switch (name) {
-        case 'milliseconds':
-          return 'this is not a number'
+      switch (name)
+      {
+        case 'paths':
+          return '*.yaml'
+        case 'outputFile':
+          return 'bundle.zip'
         default:
           return ''
       }
@@ -82,7 +73,7 @@ describe('action', () => {
     // Verify that all of the core library functions were called correctly
     expect(setFailedMock).toHaveBeenNthCalledWith(
       1,
-      'milliseconds not a number'
+      'Can\'t found list of files'
     )
     expect(errorMock).not.toHaveBeenCalled()
   })

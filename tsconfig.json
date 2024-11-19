@@ -1,4 +1,5 @@
 {
+  "extends": "@bluelovers/tsconfig/tsdx/index.json",
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "target": "ES2022",
@@ -13,7 +14,14 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
     "newLine": "lf"
   },
-  "exclude": ["./dist", "./node_modules", "./__tests__", "./coverage"]
+  "exclude": [
+    "./dist",
+    "./node_modules",
+    "./__tests__",
+    "./coverage"
+  ]
 }

@@ -1,6 +1,6 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'actions-zip-it'
+description: 'A GitHub Action to create Git-friendly compressed archives, ensuring the hash remains consistent as long as the file content is identical.'
+author: 'bluelovers'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -9,15 +9,20 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  paths:
+    description: 'List of file paths. Each file path must be on a newline.'
     required: true
-    default: '1000'
+  outputFile:
+    description: 'outputFile path'
+  autoCreateOutputDir:
+    description: 'auto create outputFile path'
 
 # Define your outputs here.
 outputs:
   time:
     description: 'Your output description here'
+  hash:
+    description: 'hash'
 
 runs:
   using: node20
